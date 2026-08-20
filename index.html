@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Arc - Cute Pomodoro Study Timer</title>
+  <meta name="description" content="Focus Arc is a simple Pomodoro study timer that helps you focus, take breaks, and build productive study sessions.">
+  <link rel="canonical" href="https://focus-arc.netlify.app/">
+  <meta property="og:title" content="Focus Arc - Cute Pomodoro Study Timer">
+  <meta property="og:description" content="Your next productive chapter. A cozy focus timer for steady study sessions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://focus-arc.netlify.app/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Focus Arc home">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>FOCUS ARC</span>
+      </a>
+      <p class="tagline">Your next productive chapter.</p>
+    </header>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-button active" type="button" data-view="focus-view">Focus</button>
+      <button class="nav-button" type="button" data-view="progress-view">Progress</button>
+      <button class="nav-button" type="button" data-view="settings-view">Settings</button>
+    </nav>
+
+    <section id="focus-view" class="app-view active-view" aria-labelledby="timer-heading">
+      <div class="workspace">
+      <div class="timer-panel">
+        <div class="panel-kicker"><span class="spark" aria-hidden="true">*</span> DAILY TRAINING LOG</div>
+        <div class="mode-row">
+          <p id="mode-label" class="mode-label">FOCUS SESSION</p>
+          <p id="status-label" class="status-label">READY</p>
+        </div>
+        <h1 id="timer-heading" class="timer" aria-live="polite">25:00</h1>
+        <p id="timer-help" class="timer-help">One focused chapter at a time.</p>
+        <div class="timer-actions primary-actions">
+          <button id="start-button" class="button button-primary" type="button">START</button>
+          <button id="pause-button" class="button button-secondary" type="button">PAUSE</button>
+        </div>
+        <div class="timer-actions secondary-actions">
+          <button id="reset-button" class="button button-quiet" type="button">RESET</button>
+          <button id="skip-button" class="button button-quiet" type="button">SKIP</button>
+        </div>
+      </div>
+
+      <aside class="companion-panel" aria-label="Focus companion">
+        <div class="companion-window">
+          <div class="window-top"><span></span><span></span><span></span></div>
+          <div class="pixel-bunny" aria-hidden="true">
+            <div class="bunny-ears"></div>
+            <div class="bunny-head"><i></i><i></i><b></b></div>
+            <div class="bunny-body"></div>
+            <div class="bunny-paws"></div>
+            <div class="bunny-tail"></div>
+            <div class="bunny-laptop"></div>
+          </div>
+          <p id="companion-message" class="companion-message">studying...</p>
+        </div>
+        <div class="speech-bubble">Small steps<br>still count.</div>
+      </aside>
+      </div>
+
+      <section class="progress-section" aria-labelledby="progress-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">YOUR JOURNEY</p>
+          <h2 id="progress-heading">Today's Progress</h2>
+        </div>
+        <p id="session-count" class="session-count">0 sessions</p>
+      </div>
+      <div id="progress-dots" class="progress-dots" aria-label="0 of 4 focus sessions completed in this arc"></div>
+      <p id="progress-note" class="progress-note">Complete four focus sessions to unlock a long break.</p>
+      </section>
+
+      <section class="session-log-section" aria-labelledby="log-heading">
+        <div class="section-heading">
+          <div><p class="section-kicker">THE TRAIL SO FAR</p><h2 id="log-heading">Session Log</h2></div>
+          <span class="settings-icon" aria-hidden="true">:::</span>
+        </div>
+        <div id="session-log" class="session-log"></div>
+      </section>
+    </section>
+
+    <section id="progress-view" class="app-view" aria-labelledby="progress-view-heading" hidden>
+      <div class="page-heading"><p class="section-kicker">A LITTLE LOOK BACK</p><h1 id="progress-view-heading">Progress</h1><p>Notice the chapters you have already written.</p></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>Today</span><strong id="today-sessions">0</strong><small>focus sessions</small></article>
+        <article class="stat-card"><span>Focus time</span><strong id="today-focus-time">0m</strong><small>today</small></article>
+        <article class="stat-card"><span>All time</span><strong id="total-sessions">0</strong><small>focus sessions</small></article>
+        <article class="stat-card"><span>Day streak</span><strong id="day-streak">0</strong><small>days in a row</small></article>
+      </div>
+      <section class="data-section" aria-labelledby="activity-heading">
+        <div class="section-heading"><div><p class="section-kicker">LAST SEVEN DAYS</p><h2 id="activity-heading">Activity Map</h2></div></div>
+        <div id="activity-map" class="activity-map"></div>
+      </section>
+      <section class="data-section" aria-labelledby="weekly-heading">
+        <div class="section-heading"><div><p class="section-kicker">THIS WEEK</p><h2 id="weekly-heading">Weekly Focus</h2></div></div>
+        <div id="weekly-chart" class="weekly-chart"></div>
+      </section>
+    </section>
+
+    <section id="settings-view" class="app-view" aria-labelledby="settings-heading" hidden>
+      <div class="page-heading"><p class="section-kicker">MAKE IT YOURS</p><h1 id="settings-heading">Settings</h1><p>Keep your arc comfortable and focused.</p></div>
+      <section class="settings-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">MAKE IT YOURS</p>
+          <h2 id="settings-heading">Timer Settings</h2>
+        </div>
+        <span class="settings-icon" aria-hidden="true">///</span>
+      </div>
+      <form id="settings-form" class="settings-form">
+        <div class="input-group">
+          <label for="focus-duration">Focus <span>(minutes)</span></label>
+          <input id="focus-duration" name="focusDuration" type="number" min="1" max="180" required>
+        </div>
+        <div class="input-group">
+          <label for="short-break-duration">Short break <span>(minutes)</span></label>
+          <input id="short-break-duration" name="shortBreakDuration" type="number" min="1" max="60" required>
+        </div>
+        <div class="input-group">
+          <label for="long-break-duration">Long break <span>(minutes)</span></label>
+          <input id="long-break-duration" name="longBreakDuration" type="number" min="1" max="120" required>
+        </div>
+        <label class="toggle-row" for="sound-toggle"><span><strong>Sound</strong><small>Play a gentle chime when a mode ends.</small></span><input id="sound-toggle" type="checkbox"><span class="toggle-control" aria-hidden="true"></span></label>
+        <button class="button button-save" type="submit">SAVE SETTINGS</button>
+        <p id="settings-message" class="settings-message" role="status" aria-live="polite"></p>
+      </form>
+      </section>
+    </section>
+
+    <div class="mobile-nav-spacer" aria-hidden="true"></div>
+
+    <footer class="site-footer">
+      <p><span aria-hidden="true">[ ]</span> Focus Arc <span id="year"></span></p>
+      <p>Focus timer for quiet progress.</p>
+    </footer>
+  </main>
+</body>
+</html>

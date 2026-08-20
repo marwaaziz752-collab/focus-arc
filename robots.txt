@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://focus-arc.netlify.app/sitemap.xml
+Sitemap: https://focus-arc-orpin.vercel.app/sitemap.xml

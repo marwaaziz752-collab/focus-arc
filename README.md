@@ -39,7 +39,7 @@ The app saves completed progress under `focusArcProgress` and custom durations u
 1. Create a new Netlify site.
 2. Drag the `focus-arc` folder into Netlify Drop, or connect a repository containing these files.
 3. Use the project folder as the publish directory. There is no build command.
-4. Replace `https://focus-arc.netlify.app/` in `index.html`, `robots.txt`, and `sitemap.xml` with your real production URL.
+4. Replace `https://focus-arc-orpin.vercel.app/` in `index.html`, `robots.txt`, and `sitemap.xml` with your real production URL.
 
 ## Test checklist
 

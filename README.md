@@ -12,7 +12,7 @@ Focus Arc is a cozy, pixel-inspired Pomodoro study timer. Complete focused sessi
 - Custom focus and break durations
 - Progress saved in the browser with localStorage
 - Responsive layout and keyboard-friendly controls
-- Static files that deploy directly to Netlify
+- Static files that deploy directly to Vercel
 
 ## Technologies
 
@@ -34,10 +34,10 @@ The app saves completed progress under `focusArcProgress` and custom durations u
 2. Open `index.html` in a browser, or use VS Code's Live Server extension if you already have it installed.
 3. No installation or build command is required.
 
-## Deploy to Netlify
+## Deploy to Vercel
 
-1. Create a new Netlify site.
-2. Drag the `focus-arc` folder into Netlify Drop, or connect a repository containing these files.
+1. Create a new Vercel site.
+2. Import the repository containing these files, or drag the `focus-arc` folder into Vercel.
 3. Use the project folder as the publish directory. There is no build command.
 4. Replace `https://focus-arc-orpin.vercel.app/` in `index.html`, `robots.txt`, and `sitemap.xml` with your real production URL.
 
